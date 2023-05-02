@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from "react";
+import Button from 'react-bootstrap/Button';
+import History from "./History";
+import HomeForm from "./Home";
 
 function App() {
+  const [show, setShow] = useState(true);
+  const handleClick = () => {
+    setShow(!show);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button>Hello</button>
-      </header>
+    <div className="text-center">
+          <Button className="NavBtn" variant="success" onClick={handleClick}>{show ? "History" : "Home"}</Button>
+      {show ? <HomeForm/> : <History/>}
     </div>
   );
 }
