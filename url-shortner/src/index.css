@@ -12,7 +12,6 @@ background-color: red;
 .Main-Div{
     width: 100%;
     margin: auto;
-    height: 3000px;
     justify-content: center;
 }
 .nav_color{
@@ -48,16 +47,17 @@ background-color: red;
     width: 100%;
     /* justify-content: center; */
 }
-
-.nav{
-    border: 1px soild red;
+a{
+    text-decoration: none;
+    color: rgb(100, 100, 100);
+    font-weight: 300;
+    
+    margin-right: 3%;
 }
-/* .hero-media{ */
-    /* height: 100px; */
-    /* width: 100%; */
-/* } */
-
-
+a:hover{
+    color: #28282B;
+    font-weight: 400;
+}
 h2{
     text-align: center;
 }

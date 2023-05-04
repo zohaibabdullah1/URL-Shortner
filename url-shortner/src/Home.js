@@ -1,47 +1,26 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
-// import FloatingLabel from 'react-bootstrap/FloatingLabel';
-// import Form from 'react-bootstrap/Form';
-// import React, { useState } from 'react';
-import {
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormFeedback,
-  FormText,
+import {Form, FormGroup, Label, Input} from 'reactstrap';
 
-} from 'reactstrap';
-
-const FormData = () => {
+const Home = () => {
   return (
     <>
-        <Form>
+  <Form>
+  <h2 className="display-6 mt-5">Enter URL</h2>
   <FormGroup className="position-relative">
-    <Label for="exampleEmail">
-    </Label>
-    <Input valid type='url' placeholder='Enter Valid URL' />
-    {/* <FormText>
-      Example help text that remains unchanged.
-    </FormText> */}
+    <Label for="url">Enter URL</Label>
+    <Input type='url' placeholder='Enter Valid URL' />
   </FormGroup>
   <FormGroup className="position-relative">
-    <Label for="examplePassword">
-    </Label>
-    <Input invalid />
-    {/* <FormText>
-      Example help text that remains unchanged.
-    </FormText> */}
+    <Label for="date">Expiry Date</Label>
+    <Input type='date' />
   </FormGroup>
-    <div className="d-grid gap-2">
+    <div className="d-grid">
 <Button variant='primary' size='md' pt role='button'>Generate Short URL</Button>
     </div>
-  
-  
 </Form>
 
         </>
   );
 }
-export default FormData
-// export default HomeForm;
+export default Home;
