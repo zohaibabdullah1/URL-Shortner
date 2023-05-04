@@ -1,0 +1,23 @@
+.login{
+    margin: 20px;
+    padding: 10px;
+}
+form{
+    text-align: center;
+}
+h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+input{
+    color: #fff;
+    padding: 5px;
+}
+input::selection{
+    background-color: #fff;
+}
+button{
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 30px;
+}
