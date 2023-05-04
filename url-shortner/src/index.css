@@ -1,7 +1,63 @@
-
+*{
+    margin: 0;
+    padding: 0;
+}
 .HomeForm{
     width: 100%;
+    /* background-image: url("https://cdn.dribbble.com/uploads/39417/original/49dbf46eae15d227fc95a69cee31251e.mp4?1657824906"); */
 }
+.navbar{
+background-color: red;
+}
+.Main-Div{
+    width: 100%;
+    margin: auto;
+    height: 3000px;
+    justify-content: center;
+}
+.nav_color{
+    color: royalblue;
+}
+.me-auto{
+    width: 100%;
+    justify-content: center;
+    color: royalblue;
+    /* border: 1px solid red; */
+    
+    /* text-align: center; */
+}
+
+/* #background-video{ */
+
+    /* height: 200px; */
+    /* width: auto; */
+    /* float: left; */
+    /* top: 0; */
+    /* padding: none; */
+    /* position: fixed; optional depending on what you want to do in your app */
+/* } */
+
+.NavBar{
+    
+    border: 1px solid;
+    display: block;
+    text-align: center;
+    /* justify-content: center; */
+    margin: 10px;
+    margin-top: 20px;
+    width: 100%;
+    /* justify-content: center; */
+}
+
+.nav{
+    border: 1px soild red;
+}
+/* .hero-media{ */
+    /* height: 100px; */
+    /* width: 100%; */
+/* } */
+
+
 h2{
     text-align: center;
 }

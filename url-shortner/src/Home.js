@@ -1,22 +1,47 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Form from 'react-bootstrap/Form';
+// import FloatingLabel from 'react-bootstrap/FloatingLabel';
+// import Form from 'react-bootstrap/Form';
+// import React, { useState } from 'react';
+import {
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormFeedback,
+  FormText,
 
-const HomeForm = () => {
+} from 'reactstrap';
+
+const FormData = () => {
   return (
-    <div className='HomeForm'>
-    <Form>
-      <h2>URL Shortener</h2>
-      <FloatingLabel label="Paste URL Here" className="mb-3">
-        <Form.Control type="Text" placeholder="Paste URL Here" />
-      </FloatingLabel>
-      <FloatingLabel label="Expiry Date" className='mb-3'>
-        <Form.Control type="date" placeholder="Password" />
-      </FloatingLabel>
-      <Button className='FormBtn' variant="success">Shorten</Button>
-      </Form>
+    <>
+        <Form>
+  <FormGroup className="position-relative">
+    <Label for="exampleEmail">
+    </Label>
+    <Input valid type='url' placeholder='Enter Valid URL' />
+    {/* <FormText>
+      Example help text that remains unchanged.
+    </FormText> */}
+  </FormGroup>
+  <FormGroup className="position-relative">
+    <Label for="examplePassword">
+    </Label>
+    <Input invalid />
+    {/* <FormText>
+      Example help text that remains unchanged.
+    </FormText> */}
+  </FormGroup>
+    <div className="d-grid gap-2">
+<Button variant='primary' size='md' pt role='button'>Generate Short URL</Button>
     </div>
+  
+  
+</Form>
+
+        </>
   );
 }
-export default HomeForm;
+export default FormData
+// export default HomeForm;
