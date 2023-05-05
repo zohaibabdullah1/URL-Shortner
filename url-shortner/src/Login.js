@@ -8,7 +8,6 @@ const Login = () => {
         localStorage.setItem('login',true)
         Navigate('/')
     }
-    
     useEffect(()=>{
         let login=localStorage.getItem('login');
         if(login){
@@ -18,7 +17,7 @@ const Login = () => {
   return (
     <div className='login'>
         <h1>Login Page</h1>
-        <form>
+        <form className='formLogin'>
         <input type="email" name='email' placeholder='Email'/><br/><br/>
         <input type="password" name='password' placeholder='Password'/><br/><br/>
         <button onClick={login}>Sign In</button>
