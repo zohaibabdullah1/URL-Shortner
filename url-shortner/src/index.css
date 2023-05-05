@@ -26,6 +26,23 @@ background-color: red;
     /* text-align: center; */
 }
 
+.aboutUs ,.ContactUs{
+
+    /* border:  1px solid red; */
+    /* display:block; */
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.about-para{
+
+    padding: 50px;
+    justify-content: center;
+}
+
 /* #background-video{ */
 
     /* height: 200px; */
