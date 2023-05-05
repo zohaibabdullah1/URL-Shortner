@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {Form, FormGroup, Label, Input} from 'reactstrap';
 
 const Home = () => {
-  const [data, setData]=useState([]);
+  const [data, setData]=useState(() => {
+    return JSON.parse(localStorage.getItem('links')) || []
+  });
   const [formData, setFormData]=useState({
     id:'',
     longUrl:'',
@@ -29,15 +31,18 @@ const Home = () => {
   const submitForm=(e)=>{
     e.preventDefault();
     const id= genId();
-        const save={...formData, id:id}
+    const short= `https://cuttly/${id}`;
+        const save={...formData, id:id, shortUrl:short}
         setData([...data,save]);
-        console.log(data);
   }
+  useEffect(() => {
+    localStorage.setItem('links', JSON.stringify(data));
+  }, [data]);
 
   return (
     <>
         <Form action='post'>
-          <h2 className="display-6">Shorten your links, simplify your life</h2>
+        <h2 className="display-6">Shorten your links, simplify your life</h2>
         <FormGroup className="position-relative">
           <Label for="url">Enter URL</Label>
           <Input type='url' placeholder='Enter Valid URL' name="longUrl" value={formData.longUrl} onChange={inputHandle} required/>
@@ -47,12 +52,12 @@ const Home = () => {
           <Input type='date' name="expiry" value={formData.expiry} onChange={inputHandle} required/>
         </FormGroup>
           <div className="d-grid">
-      <Button variant='primary' size='md' onClick={submitForm}>Generate Short URL</Button>
+      <Button variant='primary' size='md' pt onClick={submitForm}>Generate Short URL</Button>
           </div>
       </Form>
-      {/* <span className='shortUrl'>
-      <Link to={data[data.length-1].shortUrl} target='_blank'>Short Url</Link>
-      </span> */}
+      <span className='shortUrl'>
+      <Link to={data.shortUrl} target='_blank'>Short Url</Link>
+      </span>
         </>
   );
 }
