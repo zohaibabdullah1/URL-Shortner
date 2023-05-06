@@ -11,6 +11,12 @@ useEffect(() => {
    setLinks(links);
   }
 }, []);
+const copyUrl=(data)=>{
+  console.log(data);
+  navigator.clipboard.writeText(data);
+}
+
+
   return (
     <>
     <Table striped>
@@ -31,11 +37,11 @@ useEffect(() => {
           <td>{link.shortUrl}</td>
           <td>{link.expiry}</td>
           <td>
-            <Button className='table_btn' variant="info" size='sm'>Copy</Button>
+            <Button className='table_btn' variant="info" size='sm' onClick={()=>copyUrl(link.shortUrl)}><i className="material-icons icon">content_copy</i></Button>
                 {/* {' '} */}
-            <Button className='table_btn' variant="warning" size='sm'>Edit</Button>
+            <Button className='table_btn' variant="warning" size='sm'><i className="material-icons icon">create</i></Button>
                 {/* {' '} */}
-            <Button className='table_btn' variant="danger" size='sm'>Delete</Button>
+            <Button className='table_btn' variant="danger" size='sm'><i className="material-icons icon">delete_sweep</i></Button>
           </td>
       </tr>
       ))}
