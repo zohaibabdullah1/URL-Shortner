@@ -52,7 +52,7 @@ const Home = () => {
           <Input type='date' name="expiry" value={formData.expiry} onChange={inputHandle} required/>
         </FormGroup>
           <div className="d-grid">
-      <Button variant='primary' size='md' pt onClick={submitForm}>Generate Short URL</Button>
+      <Button variant='primary' size='md' onClick={submitForm}>Generate Short URL</Button>
           </div>
       </Form>
       <span className='shortUrl'>
