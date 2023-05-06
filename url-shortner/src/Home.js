@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
 import {Form, FormGroup, Label, Input} from 'reactstrap';
 
 const Home = () => {
@@ -41,21 +40,20 @@ const Home = () => {
         const save={...formData, id:id, shortUrl:short}
         setData([...data,save]);
   }
-
-
   const isUrlValid = (url) => {
     const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
       '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
-      '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+      '((\\d{1,3}\\.){3}\\d{1,3}))'+ // ip address
       '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
       '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
       '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
     return !!pattern.test(url);
   }
-
-
+  const copyUrl=()=>{
+    const shortLink=data[data.length-1].shortUrl;
+    navigator.clipboard.writeText(shortLink);
+  }
   const [urlError, setUrlError] = useState('');
-
   useEffect(() => {
     localStorage.setItem('links', JSON.stringify(data));
   }, [data]);
@@ -78,11 +76,14 @@ const Home = () => {
       <Button variant='primary' size='md' onClick={submitForm}>Generate Short URL</Button>
           </div>
       </Form>
-      <span className='shortUrl'>
-      <Link to={data[data.length-1].shortUrl} target='_blank'>Short Url</Link>
-      </span>
-      
-        </>
+      <Form>
+        <h4 className="display-6 text-center">Open Your Last Short URL</h4>
+      <FormGroup className="position-relative shortUrl_copy">
+        <Input type='text' name="shortUrl" value={data[data.length-1].shortUrl} disabled/>
+        <Button variant='info' onClick={copyUrl}><i className="material-icons icon">content_copy</i></Button>
+      </FormGroup>
+      </Form>
+    </>
   );
 }
 export default Home;
