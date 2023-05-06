@@ -21,15 +21,9 @@ background-color: red;
     width: 100%;
     justify-content: center;
     color: royalblue;
-    /* border: 1px solid red; */
-    
-    /* text-align: center; */
 }
 
 .aboutUs{
-
-    /* border:  1px solid red; */
-    /* display:block; */
     width: 60%;
     text-align: center;
     margin: auto;
@@ -38,22 +32,16 @@ background-color: red;
 }
 
 .ContactUs{
-
-    /* border:  1px solid red; */
-    /* display:block; */
     width: 100%;
     text-align: center;
     margin: auto;
     margin-top: 50px;
     padding: 20px;
 }
-
 .about-para{
-
     padding: 50px;
     justify-content: center;
 }
-
 .main-flex{
     margin-top: 7%;
     display: flex;
@@ -72,26 +60,14 @@ background-color: red;
 .coler{
     color: dodgerblue;
 }
-/* #background-video{ */
-
-    /* height: 200px; */
-    /* width: auto; */
-    /* float: left; */
-    /* top: 0; */
-    /* padding: none; */
-    /* position: fixed; optional depending on what you want to do in your app */
-/* } */
-
 .NavBar{
     
     border: 1px solid;
     display: block;
     text-align: center;
-    /* justify-content: center; */
     margin: 10px;
     margin-top: 20px;
     width: 100%;
-    /* justify-content: center; */
 }
 a{
     text-decoration: none;
@@ -104,6 +80,17 @@ a:hover{
     color: #28282B;
     font-weight: 400;
 }
+.shortUrl{
+    display: flex;
+    justify-content: center;}
+.shortUrl a{
+    padding: 0.5%;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+.table_btn{
+    margin: 1%;
+}
 h2{
     text-align: center;
 }
@@ -115,8 +102,8 @@ form{
     margin: 0 40%;
 }
 .table{
-    width: 80%;
-    margin: 2% 10%;
+    /* width: 100%; */
+    /* margin: 2% 10%; */
     text-align: center;
 }
 .NavBtn{
