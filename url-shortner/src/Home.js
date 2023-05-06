@@ -56,7 +56,7 @@ const Home = () => {
           </div>
       </Form>
       <span className='shortUrl'>
-      <Link to={data.shortUrl} target='_blank'>Short Url</Link>
+      <Link to={data[data.length-1].shortUrl} target='_blank'>Short Url</Link>
       </span>
         </>
   );

@@ -14,7 +14,8 @@ const Login = () => {
             Navigate('/')
         }
     })
-  return (
+
+    return (
     <div className='login'>
         <h1>Login Page</h1>
         <form className='formLogin'>
@@ -24,7 +25,7 @@ const Login = () => {
         </form>
         <Outlet/>
     </div>
-  )
+    )
 }
 
 export default Login;
