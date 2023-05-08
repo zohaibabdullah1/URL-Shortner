@@ -71,27 +71,24 @@ const copyUrl=(data)=>{
       <td>{key + 1}</td>
       <td>{link.longUrl}</td>
       <td>{link.shortUrl}</td>
-      <td>
-        <Input
-          type="date"
-          className="text-center"
-          name="shortUrl"
-          value={link.expiry}
-          onChange={(e) => setDate(e.target.value)}
+      <td className='update'>
+        <Input type="date" className="text-center" name="shortUrl" value={link.expiry} onChange={(e) => setDate(e.target.value)}
           disabled={!isInputActive}
         />
         {link.expiry && (
           <i
-            className={`material-icons icon ${
+            className={`material-icons md-36 ${
               new Date(link.expiry) < new Date() ? "text-danger" : "text-success"
-            }`}
-          >
+            }`}>
             {new Date(link.expiry) < new Date() ? "error_outline" : "done"}
           </i>
         )}
       </td>
       <td>
-        <Button className="table_btn" variant="warning" size="sm" onClick={inputActive}>
+        <Button className="table_btn" 
+        variant="warning" 
+        size="sm" 
+        onClick={inputActive}>
           <i className="material-icons icon">create</i>
         </Button>
         <Button
