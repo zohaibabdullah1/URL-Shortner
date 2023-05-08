@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import './login.css';
+import Button from 'react-bootstrap/Button';
+import {Form, FormGroup, Label, Input} from 'reactstrap';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -17,12 +18,20 @@ const Login = () => {
 
     return (
     <div className='login'>
-        <h1>Login Page</h1>
-        <form className='formLogin'>
-        <input type="email" name='email' placeholder='Email'/><br/><br/>
-        <input type="password" name='password' placeholder='Password'/><br/><br/>
-        <button onClick={login}>Sign In</button>
-        </form>
+        <Form action='post'>
+        <h2 className="display-6">Login Page</h2>
+        <FormGroup className="position-relative">
+          <Label for="email">Email Address</Label>
+          <Input type='email' value="talhanonari@gmail.com" required/>
+        </FormGroup>
+        <FormGroup className="position-relative">
+          <Label for="password">Password</Label>
+          <Input type='password' value="syco321" required/>
+        </FormGroup>
+          <div className="d-grid">
+      <Button variant='success' size='md' onClick={login}>Login</Button>
+          </div>
+      </Form>
         <Outlet/>
     </div>
     )
