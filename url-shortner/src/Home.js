@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import {Form, FormGroup, Label, Input} from 'reactstrap';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Home = () => {
   const [data, setData]=useState(() => {
@@ -52,6 +56,10 @@ const Home = () => {
   const copyUrl=()=>{
     const shortLink=data[data.length-1].shortUrl;
     navigator.clipboard.writeText(shortLink);
+    toast.success('URL copied to clipboard!', {
+    autoClose: 2000,
+    });
+
   }
   const [urlError, setUrlError] = useState('');
   useEffect(() => {
