@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import { Input } from 'reactstrap';
 import { toast } from 'react-toastify';
+// import Table from 'react-bootstrap/Table';
 import 'react-toastify/dist/ReactToastify.css';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -53,31 +54,77 @@ const copyUrl=(data)=>{
 
   return (
     <>
-    <Table striped>
+    <Table striped bordered hover>
     <thead>
       <tr>
         <th>#</th>
         <th>URL</th>
         <th>Short URL</th>
         <th>Expiry Date</th>
+        <th>Edit</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      {links.map((link, key) => (
-        <tr key={key}>
-          <td>{key+1}</td>
-          <td>{link.longUrl}</td>
-          <td>{link.shortUrl}</td>
-          <td className='update'><Input type='date' className='text-center' name="shortUrl" value={link.expiry} onChange={(e)=>setDate(e.target.value)} disabled={!isInputActive}/><Button className='table_btn' variant="success" size='sm' onClick={()=>handleUpdate(link.id)}><i className="material-icons icon">save</i></Button></td>
-          <td>
-            <Button className='table_btn' variant="info" size='sm' onClick={()=>copyUrl(link.shortUrl)}><i className="material-icons icon">content_copy</i></Button>
-            <Button className='table_btn' variant="warning" size='sm' onClick={inputActive}><i className="material-icons icon">create</i></Button>
-            <Button className='table_btn' variant="danger" size='sm' onClick={()=>handleDelete(link.id)}><i className="material-icons icon">delete_sweep</i></Button>
-          </td>
-      </tr>
-      ))}
-    </tbody>
+  {links.map((link, key) => (
+    <tr key={key}>
+      <td>{key + 1}</td>
+      <td>{link.longUrl}</td>
+      <td>{link.shortUrl}</td>
+      <td>
+        <Input
+          type="date"
+          className="text-center"
+          name="shortUrl"
+          value={link.expiry}
+          onChange={(e) => setDate(e.target.value)}
+          disabled={!isInputActive}
+        />
+        {link.expiry && (
+          <i
+            className={`material-icons icon ${
+              new Date(link.expiry) < new Date() ? "text-danger" : "text-success"
+            }`}
+          >
+            {new Date(link.expiry) < new Date() ? "error_outline" : "done"}
+          </i>
+        )}
+      </td>
+      <td>
+        <Button className="table_btn" variant="warning" size="sm" onClick={inputActive}>
+          <i className="material-icons icon">create</i>
+        </Button>
+        <Button
+          className="table_btn"
+          variant="success"
+          size="sm"
+          onClick={() => handleUpdate(link.id)}
+        >
+          <i className="material-icons icon">save</i>
+        </Button>
+      </td>
+      <td>
+        <Button
+          className="table_btn"
+          variant="info"
+          size="sm"
+          onClick={() => copyUrl(link.shortUrl)}
+        >
+          <i className="material-icons icon">content_copy</i>
+        </Button>
+        <Button
+          className="table_btn"
+          variant="danger"
+          size="sm"
+          onClick={() => handleDelete(link.id)}
+        >
+          <i className="material-icons icon">delete_sweep</i>
+        </Button>
+      </td>
+    </tr>
+  ))}
+</tbody>
+
   </Table>
     </>
   )
