@@ -35,6 +35,13 @@
     padding: 50px;
     justify-content: center;
 }
+.display-6{
+
+    font-size: 2.0rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+
+}
 .main-flex{
     margin-top: 7%;
     display: flex;
