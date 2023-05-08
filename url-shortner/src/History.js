@@ -6,30 +6,42 @@ import { Input } from 'reactstrap';
 const History = () => {
   const [links, setLinks] = useState([]);
   const [isInputActive, setIsInputActive] = useState(false);
-  const inputActive = () => {
-  setIsInputActive(!isInputActive);
-  };
+  const [date,setDate]=useState('');
+
 useEffect(() => {
   const links = JSON.parse(localStorage.getItem('links'));
   if (links) {
    setLinks(links);
   }
-}, []);
-const handleUpdate=(id)=>{
-  inputActive();
-  const data = links.find(item => item.id === id);
-  console.log(data.expiry);
-}
-const handleDelete= (id) => {
-  const newData = links.filter((item) => item.id !== id);
-  setLinks(newData);
-  localStorage.setItem('links', JSON.stringify(newData));
+}, [links]);
+const inputActive = () => {
+  setIsInputActive(!isInputActive);
 };
+//Update Expiry date
+const handleUpdate=(id)=>{
+  const newExpiry = links.map(item => {
+    if (item.id === id) {
+      return {
+        ...item,
+        expiry: date
+      };
+    } else {
+      return item;
+    }
+  });
+  localStorage.setItem('links', JSON.stringify(newExpiry));
+  setIsInputActive(!isInputActive);
+}
+//Delete Method
+const handleDelete= (id) => {
+  const newLink = links.filter((item) => item.id !== id);
+  setLinks(newLink);
+  localStorage.setItem('links', JSON.stringify(newLink));
+};
+//Copy Url Method
 const copyUrl=(data)=>{
-  console.log(data);
   navigator.clipboard.writeText(data);
 }
-
 
   return (
     <>
@@ -49,10 +61,10 @@ const copyUrl=(data)=>{
           <td>{key+1}</td>
           <td>{link.longUrl}</td>
           <td>{link.shortUrl}</td>
-          <td><Input type='date' className='text-center' name="shortUrl" value={link.expiry} disabled={isInputActive}/></td>
+          <td className='update'><Input type='date' className='text-center' name="shortUrl" value={link.expiry} onChange={(e)=>setDate(e.target.value)} disabled={!isInputActive}/><Button className='table_btn' variant="success" size='sm' onClick={()=>handleUpdate(link.id)}><i className="material-icons icon">save</i></Button></td>
           <td>
             <Button className='table_btn' variant="info" size='sm' onClick={()=>copyUrl(link.shortUrl)}><i className="material-icons icon">content_copy</i></Button>
-            <Button className='table_btn' variant="warning" size='sm' onClick={()=>handleUpdate(link.id)}><i className="material-icons icon">create</i></Button>
+            <Button className='table_btn' variant="warning" size='sm' onClick={inputActive}><i className="material-icons icon">create</i></Button>
             <Button className='table_btn' variant="danger" size='sm' onClick={()=>handleDelete(link.id)}><i className="material-icons icon">delete_sweep</i></Button>
           </td>
       </tr>
