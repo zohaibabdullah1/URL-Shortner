@@ -88,6 +88,7 @@ a:hover{
 }
 .update{
     display: flex;
+    align-items: center;
 }
 .icon{
     font-size: 20px;
