@@ -6,9 +6,6 @@
     width: 100%;
     /* background-image: url("https://cdn.dribbble.com/uploads/39417/original/49dbf46eae15d227fc95a69cee31251e.mp4?1657824906"); */
 }
-.navbar{
-background-color: red;
-}
 .Main-Div{
     width: 100%;
     margin: auto;
@@ -85,6 +82,9 @@ a:hover{
     padding: 2%;
     border: 3px dashed black;
     border-radius: 8px;
+}
+.update{
+    display: flex;
 }
 .icon{
     font-size: 20px;

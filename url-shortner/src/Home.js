@@ -77,7 +77,7 @@ const Home = () => {
           </div>
       </Form>
       <Form>
-        <h4 className="display-6 text-center">Open Your Last Short URL</h4>
+        <h4 className="display-6 text-center">Copy Your Last Short URL</h4>
       <FormGroup className="position-relative shortUrl_copy">
         <Input type='text' name="shortUrl" value={data[data.length-1].shortUrl} disabled/>
         <Button variant='info' onClick={copyUrl}><i className="material-icons icon">content_copy</i></Button>
