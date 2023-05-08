@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import { Input } from 'reactstrap';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const History = () => {
   const [links, setLinks] = useState([]);
@@ -41,6 +45,10 @@ const handleDelete= (id) => {
 //Copy Url Method
 const copyUrl=(data)=>{
   navigator.clipboard.writeText(data);
+  toast.success('URL copied to clipboard!', {
+    // position: 'top-center',
+    autoClose: 2000,
+  });
 }
 
   return (
